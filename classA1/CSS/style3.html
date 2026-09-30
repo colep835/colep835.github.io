@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>My Website</h1>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+           a{
+            color: red;
+            font-size: 25px;
+            background-color:  lightgrey;
+             border-radius: 50px;
+             text-decoration: none;
+             padding: 10px 30px;
+        }
+        a.table{
+            color: red;
+            font-size: 25px;
+            background-color:  lightgrey;
+             border-radius: 10px 10px 0px 0px;
+             text-decoration: none;
+             padding: 10px 30px;
+        }
+        a:hover.table{
+            color: blue;
+            background-color: lightgray;
+            border-radius: 10px 10px 0px 0px;
+        }
+        a:hover{
+            color: blue;
+            background-color: lightgray;
+            border-radius: 50px;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <a href="index.html">Back to Home</a>
+        <a class="table" href="table.html">Table</a>
+        <div style="background-color: lightgrey; padding: 20px; border-radius: 10px;">
+            <p>This is a simple webpage with navigation links and some content.</p>
+            </div>
+        <div Style="background-color: white; padding: 20px; border: 20px solid lightgrey;border-radius: 10px;">
+             <table border = "1" cellpadding = "10" cellspacing = "5">
+            <tr hieght = "20">
+                <td align = "center" rowspan="3"  width = "50">Day</td>
+                <td align="center" colspan="3">seminar</td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">schedule</td>
+                <td align="center" rowspan = "2" width = "100">topic</td>
+            </tr>
+            <tr>
+                <td>Begin</td>
+                <td>End</td>
+            </tr>
+            <tr style = "background-color: greenyellow; color: white; font-size: 30px;">
+                <td rowspan="2">monday</td>
+                <td align="center" rowspan="2"> 8:00</td>
+                <td align="center" rowspan="2"> 5:00</td>
+                <td align = "center">Intrduction to XML </td>
+            </tr>
+            <tr style = "background-color: greenyellow; color: white; font-size: 30px;">
+                <td align="center">validity.DTD and Relax NG</td>
+            </tr>
+            <tr style="background-color: rgb(238, 214, 5); color: white; font-size: 30 px;"> 
+                <td align="center" rowspan="3"> tuesday</td>
+                <td align="center"> 8:00A.M.</td>
+                <td align="center"> 11:00A.M.</td>
+            </tr>
+        </div>
+    </body>
+</html>
