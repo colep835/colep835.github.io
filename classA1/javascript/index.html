@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1> JS Output</h1>
+    <script type="text/javascript">
+        const name = "jack";
+        const age = 25;
+    
+        document.write('<p>username: ' + name + '; Age ' + age + '</p>');
+
+        message = "Welcome " + name;
+        document.write('<p>' + message + '</p>');
+
+        document.write('<p>My name is ' + name + ' and I am ' + age + ' years old.</p>');
+        const grade = 'A';
+        switch (grade) {
+            case 'A':
+                document.write('<p>Grade A+</p>');
+                break;
+            case 'B':
+                document.write('<p>Grade B</p>');
+                break;
+            case 'C':
+                document.write('<p>Grade C</p>');
+                break;
+            default:
+                document.write('<p>Grade not found</p>');    
+        }
+        const x = 30;
+        const y = 20;
+        document.write('<p>Value of x: ' + x + '</p>');
+        document.write('<p>Value of y: ' + y + '</p>');
+        const add = x + y;
+        const sub = x - y;
+        const mul = x * y;
+        const div = x / y;
+        document.write('<p>Addition: ' + add + '</p>');
+        document.write('<p>Subtraction: ' + sub + '</p>');
+        document.write('<p>Multiplication: ' + mul + '</p>');
+        document.write('<p>Division: ' + div + '</p>');
+        
+    </script>
+
+</body>
+</html>
