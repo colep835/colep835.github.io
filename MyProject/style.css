@@ -1,3 +1,4 @@
+/* Base page spacing and default text styles */
 html, body {
     margin: 0;
     padding: 0;
@@ -10,6 +11,10 @@ body {
     line-height: 1.6;
 }
 
+<<<<<<< HEAD
+=======
+/* Header styles */
+>>>>>>> 9231d91 (Update website layout)
 .nav2 h1 {
     text-align: center;
     margin: 0;
@@ -58,6 +63,10 @@ h5 {
     padding: 10px;
 }
 
+<<<<<<< HEAD
+=======
+/* Navigation bars and links */
+>>>>>>> 9231d91 (Update website layout)
 nav {
     background-color: #14243a;
     padding: 16px 24px;
@@ -120,12 +129,20 @@ nav a:hover {
     color: #14243a;
 }
 
+<<<<<<< HEAD
+=======
+/* Main page layouts */
+>>>>>>> 9231d91 (Update website layout)
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 35px auto;
 }
 
+<<<<<<< HEAD
+=======
+/* Homepage topic cards */
+>>>>>>> 9231d91 (Update website layout)
 .card-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -184,6 +201,10 @@ th {
     color: #ffffff;
 }
 
+<<<<<<< HEAD
+=======
+/* Highlighted key terms section */
+>>>>>>> 9231d91 (Update website layout)
 #key-terms {
     background-color: #dbeafe;
     border: 1px solid #93c5fd;
@@ -192,6 +213,10 @@ th {
     border-radius: 10px;
 }
 
+<<<<<<< HEAD
+=======
+/* Layout used by topic pages */
+>>>>>>> 9231d91 (Update website layout)
 .topic-layout {
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
@@ -224,6 +249,10 @@ th {
     border-bottom: 1px solid #dbe3ee;
 }
 
+<<<<<<< HEAD
+=======
+/* Homepage introduction */
+>>>>>>> 9231d91 (Update website layout)
 .hero {
     background-color: #ffffff;
     padding: 50px 30px;
@@ -264,12 +293,20 @@ th {
     color: #14243a;
 }
 
+<<<<<<< HEAD
+=======
+/* About Me hobbies table */
+>>>>>>> 9231d91 (Update website layout)
 .hobbies-table {
     width: 100%;
     margin: 0;
     table-layout: fixed;
 }
 
+<<<<<<< HEAD
+=======
+/* Works Cited page */
+>>>>>>> 9231d91 (Update website layout)
 .references {
     background-color: #ffffff;
     padding: 25px;
@@ -294,6 +331,10 @@ main.container2 {
     padding: 0;
 }
 
+<<<<<<< HEAD
+=======
+/* Shared footer */
+>>>>>>> 9231d91 (Update website layout)
 footer {
     background-color: #14243a;
     color: #cbd5e1;
@@ -307,6 +348,10 @@ footer a {
     color: #93c5fd;
 }
 
+<<<<<<< HEAD
+=======
+/* Tablet and smaller screens */
+>>>>>>> 9231d91 (Update website layout)
 @media (max-width: 800px) {
     main.container,
     main.container2 {
@@ -335,6 +380,7 @@ footer a {
     }
 }
 
+/* Phone-sized screens */
 @media (max-width: 650px) {
     h1 {
         font-size: 2rem;
