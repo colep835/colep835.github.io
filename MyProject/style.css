@@ -126,14 +126,7 @@ nav a:hover {
     max-width: 1100px;
     margin: 35px auto;
 }
-.hero {
-    background-color: #ffffff;
-    padding: 50px 30px;
-    border-radius: 12px;
-    border-left: 6px solid #14243a;
-    border-right: 6px solid #14243a;
-    margin-bottom: 30px;
-}
+
 .eyebrow {
     color: #2563eb;
     font-weight: bold;
@@ -178,13 +171,14 @@ table {
     width: 100%;
     border-collapse: collapse;
     background-color: #ffffff;
-    margin: 20px 0;
+    margin: 0px 0;
+    padding: 0px;
 }
 
 th, td {
     border: 1px solid #cbd5e1;
     padding: 12px;
-    text-align: left;
+    text-align: center;
 }
 
 th {
@@ -232,18 +226,35 @@ th {
     padding-bottom: 15px;
     border-bottom: 1px solid #dbe3ee;
 }
+.about-intro,
+.about-school,
+.about-interests {
+    margin: 15px 0;
+}
+
+.about-interests {
+    margin: 0;
+    padding: 0;
+}
+
+.hobbies-table {
+    width: 100%;
+    margin: 0;
+    table-layout: fixed;
+}
+
 .hobby-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
-    margin: 25px 0;
+    margin: 20px 0;
 }
 
 .hobby-card {
     background-color: white;
-    padding: 20px;
     border: 1px solid #d5e0ed;
     border-radius: 12px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -253,6 +264,28 @@ th {
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
+}
+
+.hobby-card h3 {
+    color: #14243a;
+}
+
+.hobby-card p {
+    line-height: 1.6;
+}
+.hero {
+    background-color: #ffffff;
+    padding: 50px 30px;
+    border-radius: 12px;
+    border-left: 6px solid #14243a;
+    border-right: 6px solid #14243a;
+    margin-bottom: 30px;
+}
+.hero2 {
+    background-color: #ffffff;
+    padding: 0px 25px;
+    border-radius: 12px 12px 0px 0px;
+    padding-bottom: 0;
 }
 .hero h6 {
     text-align: left;
@@ -266,7 +299,22 @@ th {
 
 
 }
+.hero2 h6 {
+    text-align: center;
+    font-size: 30px;
+    margin: 0px;
+    padding: 10px 0px 10px 0px ;
+}
+.hero2 h5 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.hero2 p2{
+    font-size: 18px;
+    color:#14243a
 
+
+}
 .references {
     background-color: #ffffff;
     padding: 25px;
@@ -282,8 +330,15 @@ main.container {
     margin: 0px 200px 0px 40px;
     padding: 0;
 }
-
-
+main.container2{
+    max-width: 1100px;
+    width: 90%;
+    margin: 35px auto;
+    padding: 0;
+}
+.table th{
+    text-align: center;
+}
 footer {
     background-color: #14243a;
     color: #cbd5e1;
@@ -295,31 +350,163 @@ footer {
 footer a {
     color: #93c5fd;
 }
+@media (max-width: 800px) {
+    main.container,
+    main.container2 {
+        box-sizing: border-box;
+        width: auto;
+        max-width: none;
+        margin: 24px 20px;
+    }
+
+    .topic-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .topic-content {
+        border-width: 8px;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .references {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: none;
+        padding: 20px;
+    }
+}
+
 @media (max-width: 650px) {
     h1 {
         font-size: 2rem;
     }
 
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.75rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+        padding: 8px 0;
+    }
+
+    .nav2 {
+        align-items: center;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .nav2 h1 {
+        font-size: 1.8rem;
+    }
+
+    nav {
+        padding: 10px;
+        gap: 6px;
+    }
+
+    nav a {
+        box-sizing: border-box;
+        flex: 1 1 130px;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .nav3 {
+        padding: 12px;
+    }
+
+    .nav4 {
+        padding: 12px;
+    }
+
+    .nav4 h4 {
+        font-size: 1.5rem;
+    }
+
+    main.container,
+    main.container2 {
+        margin: 16px;
+    }
+
     .hero {
-        padding: 28px 20px;
+        padding: 24px 18px;
+        margin-bottom: 20px;
+    }
+
+    .hero h6,
+    .hero2 h6 {
+        font-size: 1.4rem;
+    }
+
+    .hero2 {
+        padding: 0 16px;
+    }
+
+    .hero2 h5 {
+        font-size: 1.4rem;
     }
 
     .card-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 18px 0;
     }
 
-    nav {
-        padding: 12px;
+    .card {
+        padding: 18px;
     }
 
-    nav a {
-        padding: 8px 10px;
+    #key-terms {
+        padding: 16px;
+        margin: 18px 0;
     }
 
-    table {
+    .topic-sidebar {
+        padding: 16px;
+    }
+
+    .topic-content {
+        border-width: 6px;
+    }
+
+    .topic-content section {
+        margin-bottom: 20px;
+        padding: 0 6px 12px;
+    }
+
+    .hobbies-table {
         font-size: 0.85rem;
     }
-    .topic-layout {
-        grid-template-columns: 1fr;
+
+    .hobbies-table th,
+    .hobbies-table td {
+        padding: 6px 4px;
+        overflow-wrap: anywhere;
+    }
+
+    .hobbies-table img {
+        width: 100%;
+        height: auto;
+    }
+
+    .references {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    footer {
+        margin-top: 28px;
+        padding: 18px 14px;
     }
 }
