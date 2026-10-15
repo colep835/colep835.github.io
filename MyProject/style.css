@@ -29,7 +29,13 @@ header{
     margin: 0;
     line-height: 1.2;
 }
-h1, h2, h3 {
+.nav4 h4 {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0;
+    line-height: 1.2;
+}
+h1, h2, h3, h5 {
     color: #14243a;
     line-height: 1.3;
 }
@@ -39,10 +45,20 @@ h1{
 h2{
     font-size: 27px;
 }
+h3{
+    font-size: 25px;
+    text-align: center;
+}
 h4{
     font-size: 40px;
     color: white;
 }
+h5{
+    font-size: 35px;
+    text-align: center;
+    padding: 10px;
+}
+
 
 nav {
     background-color: #14243a;
@@ -74,7 +90,21 @@ nav {
     gap: 2px;
     margin: 0;
 }
+.nav4 {
+    background-color: #14243a;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    border-radius: 25;
+}
 
+.nav4 h4 {
+    margin: 0;
+    font-size: 48px;
+}
 nav a {
     color: white;
     text-decoration: none;
@@ -183,23 +213,68 @@ th {
     border: 1px solid #dbe3ee;
     border-radius: 10px;
 }
-
+.topic-sidebar a{
+    text-decoration: none;
+    color:#14243a
+}
 
 .topic-content {
     background-color: #ffffff;
-    padding: 25px;
-    border: 1px solid #dbe3ee;
+    border: 15px solid #14243a;
     border-radius: 10px;
 }
 
 
+
 .topic-content section {
     margin-bottom: 30px;
+    padding-left: 10px;
     padding-bottom: 15px;
     border-bottom: 1px solid #dbe3ee;
 }
-.topic-content p{
-    font-size: 20px;
+.hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    margin: 25px 0;
+}
+
+.hobby-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #d5e0ed;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.hobby-card img {
+    width: 100%;
+    max-width: 220px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.hero h6 {
+    text-align: left;
+    font-size: 30px;
+    margin: 0px;
+    padding: 10px 0px 10px 0px ;
+}
+.hero p2{
+    font-size: 18px;
+    color:#14243a
+
+
+}
+
+.references {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 25px;
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    overflow-wrap: break-word;
 }
 main.container {
     max-width: none;
