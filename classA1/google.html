@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <h1>google search</h1>
+       <style>
+
+       </style>
+    </head> 
+    <body>
+          <form action="https://www.google.com/search" method="get" target="_blank">
+              <input type="text" id="word1" name="q">
+              <input type="radio" id="text1" name="udm" value="1" checked>
+              <label for="text1">Search text</label>
+              <input type="radio" id="image1" name="udm" value="2">
+              <label for="image1">Search image</label>
+              <imput type="submit" value="Search">
+              <imput type="reset" value="Reset">
+         <p></p>
+
+    <input type="text" name="q" id="inputText" required>
+    <input type="button" value="Search" onclick="searchGoogle()">
+          </form> 
+          
+   
+
+    <script>
+        function searchGoogle() {
+            var query = document.getElementById("inputText").value;
+            var url = "https://www.google.com/search?q=" + query;
+
+            window.open(url, "_blank");
+        }
+    </script> 
+     </body>
+</html>
