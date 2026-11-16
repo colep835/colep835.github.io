@@ -1,97 +1,170 @@
-// Wait for the quiz form to be submitted
-document.getElementById("quizForm").addEventListener("submit", function(event) {
-    event.preventDefault();
 
-    // Store the correct answers
-    const answers = {
-        q1: "a",
-        q2: "b",
-        q3: "a",
-        q4: "b",
-        q5: "b",
-        q6: "b",
-        q7: "a",
-        q8: "a",
-        q9: "c",
-        q10: ["a", "b", "c"]
-    };
+// Quiz timer settings
+let timeLeft = 600;
+let timerInterval;
+let quizStarted = false;
+let quizSubmitted = false;
+
+const startButton = document.getElementById("startQuiz");
+const timerDisplay = document.getElementById("quizTimer");
+const quizForm = document.getElementById("quizForm");
+const resultsDisplay = document.getElementById("quizResults");
+
+// Correct answers
+const answers = {
+    q1: { answer: "a", text: "HyperText Markup Language" },
+    q2: { answer: "b", text: "Web 2.0" },
+    q3: { answer: "a", text: "HyperText Transfer Protocol" },
+    q4: { answer: "b", text: "<p>" },
+    q5: { answer: "b", text: "To style and format webpages" },
+    q6: { answer: "b", text: "href" },
+    q7: { answer: "a", text: "Web 1.0" },
+    q8: { answer: "a", text: "HTTPS provides encrypted communication" },
+    q9: { answer: "c", text: "background-color" },
+    q10: {
+        answer: ["a", "b", "c"],
+        text: "Inline CSS, Internal CSS, and External CSS"
+    }
+};
+
+// Start quiz button
+startButton.addEventListener("click", function () {
+    if (quizStarted) {
+        return;
+    }
+
+    quizStarted = true;
+
+    startButton.hidden = true;
+    quizForm.hidden = false;
+    timerDisplay.hidden = false;
+
+    updateTimer();
+
+    timerInterval = setInterval(function () {
+        timeLeft--;
+        updateTimer();
+    }, 1000);
+});
+
+// Update timer display
+function updateTimer() {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    timerDisplay.textContent =
+        "Time Remaining: " +
+        minutes + ":" + String(seconds).padStart(2, "0");
+
+    if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        gradeQuiz();
+    }
+}
+
+// Grade quiz
+function gradeQuiz() {
+    if (quizSubmitted) {
+        return;
+    }
+
+    quizSubmitted = true;
+    clearInterval(timerInterval);
+
+    quizForm.querySelectorAll("input, button").forEach(function (element) {
+        element.disabled = true;
+    });
 
     let score = 0;
     let resultsHTML = "<h2>Quiz Results</h2>";
 
-    // Check Questions 1 through 9
+    // Grade questions 1 through 9
     for (let i = 1; i <= 9; i++) {
-        const questionName = "q" + i;
-        const selected = document.querySelector(
+        let questionName = "q" + i;
+
+        let selected = document.querySelector(
             'input[name="' + questionName + '"]:checked'
         );
 
-        const userAnswer = selected ? selected.value : "";
-        const correctAnswer = answers[questionName];
+        let userAnswer = selected ? selected.value : "";
+        let correctAnswer = answers[questionName];
 
-        if (userAnswer === correctAnswer) {
+        if (userAnswer === correctAnswer.answer) {
             score++;
-            resultsHTML += `
-                <p class="correct">
-                    Question ${i}: Correct!
-                </p>`;
+
+            resultsHTML +=
+                '<p class="correct">Question ' + i + ': Correct!</p>';
         } else {
-            resultsHTML += `
-                <p class="incorrect">
-                    Question ${i}: Incorrect.
-                    Correct answer: ${correctAnswer.toUpperCase()}
-                </p>`;
+            resultsHTML +=
+                '<p class="incorrect">Question ' + i +
+                ': Incorrect. Correct answer: ' +
+                correctAnswer.text + '</p>';
         }
     }
 
-    // Check Question 10 (multiple selection)
-    const selectedBoxes = document.querySelectorAll(
+    // Grade question 10 (multiple select)
+    let selectedBoxes = document.querySelectorAll(
         'input[name="q10"]:checked'
     );
 
-    const userAnswers = Array.from(selectedBoxes)
-        .map(box => box.value)
+    let userAnswers = Array.from(selectedBoxes)
+        .map(function (box) {
+            return box.value;
+        })
         .sort();
 
-    const correctAnswers = answers.q10.slice().sort();
+    let correctAnswers = answers.q10.answer.slice().sort();
 
-    const question10Correct =
+    let question10Correct =
         userAnswers.length === correctAnswers.length &&
-        userAnswers.every((answer, index) =>
-            answer === correctAnswers[index]
-        );
+        userAnswers.every(function (answer, index) {
+            return answer === correctAnswers[index];
+        });
 
     if (question10Correct) {
         score++;
-        resultsHTML += `
-            <p class="correct">
-                Question 10: Correct!
-            </p>`;
+
+        resultsHTML +=
+            '<p class="correct">Question 10: Correct!</p>';
     } else {
-        resultsHTML += `
-            <p class="incorrect">
-                Question 10: Incorrect.
-                Correct answers: A, B, and C.
-            </p>`;
+        resultsHTML +=
+            '<p class="incorrect">Question 10: Incorrect. ' +
+            'Correct answers: ' + answers.q10.text + '.</p>';
     }
 
-    // Calculate final score
-    const passed = score >= 7;
+    // Calculate elapsed time
+    let elapsedTime = 600 - timeLeft;
+
+    let elapsedMinutes = Math.floor(elapsedTime / 60);
+    let elapsedSeconds = elapsedTime % 60;
+
+    let timeSpent =
+        elapsedMinutes + ":" +
+        String(elapsedSeconds).padStart(2, "0");
+
+    // Determine pass or fail (7 out of 10 needed)
+    let passed = score >= 7;
 
     resultsHTML += `
         <hr>
         <h2>Final Score: ${score}/10</h2>
-        <h3 class="${passed ? 'correct' : 'incorrect'}">
-            ${passed ? 'PASS!' : 'FAIL'}
+
+        <h3 class="${passed ? "correct" : "incorrect"}">
+            ${passed ? "PASS!" : "FAIL"}
         </h3>
+
+        <p><strong>Time Spent:</strong> ${timeSpent}</p>
     `;
 
-    // Display results on the page
-    document.getElementById("quizResults").innerHTML = resultsHTML;
+    resultsDisplay.innerHTML = resultsHTML;
 
-    // Scroll to the results
-    document.getElementById("quizResults").scrollIntoView({
+    resultsDisplay.scrollIntoView({
         behavior: "smooth"
     });
+}
 
+// Submit quiz button
+quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    gradeQuiz();
 });

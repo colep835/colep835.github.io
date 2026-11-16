@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,24 +22,50 @@
         <a href="history.html">History</a>
         <a href="concepts.html">Key Concepts</a>
         <a href="html-css.html">HTML and CSS</a>
-        <a href="references.html">Reference</a>
+        <a href="references.html">References</a>
         <a href="quiz.html">Quiz</a>
     </nav>
 
-    <!-- Quiz questions -->
     <main class="quiz-container">
 
-        <form id="quizForm">
+        <h1>HTML and CSS Quiz</h1>
+        <p>Test your knowledge of HTML, CSS, and the evolution of the web.</p>
+
+        <!-- Start button -->
+        <button type="button" id="startQuiz" class="quiz-submit">
+            Start Quiz
+        </button>
+
+        <!-- Countdown timer -->
+        <div id="quizTimer" hidden>Time Remaining: 10:00</div>
+
+        <!-- Quiz questions -->
+        <form id="quizForm" hidden>
 
             <!-- Question 1 -->
             <div class="quiz-question">
                 <h2>Question 1</h2>
                 <p>What does HTML stand for?</p>
 
-                <label><input type="radio" name="q1" value="a"> HyperText Markup Language</label>
-                <label><input type="radio" name="q1" value="b"> HighText Machine Language</label>
-                <label><input type="radio" name="q1" value="c"> Hyper Transfer Main Language</label>
-                <label><input type="radio" name="q1" value="d"> Home Tool Markup Language</label>
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    HyperText Markup Language
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    HighText Machine Language
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    Hyper Transfer Main Language
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="d">
+                    Home Tool Markup Language
+                </label>
             </div>
 
             <!-- Question 2 -->
@@ -61,7 +86,7 @@
 
                 <label><input type="radio" name="q3" value="a"> HyperText Transfer Protocol</label>
                 <label><input type="radio" name="q3" value="b"> High Transfer Text Program</label>
-                <label><input type="radio" name="q3" value="c"> Hyperlink Technical Transfer Process</label>
+                <label><input type="radio" name="q3" value="c"> Hyper Transfer Technology Process</label>
                 <label><input type="radio" name="q3" value="d"> Home Text Transfer Protocol</label>
             </div>
 
@@ -72,8 +97,8 @@
 
                 <label><input type="radio" name="q4" value="a"> &lt;h1&gt;</label>
                 <label><input type="radio" name="q4" value="b"> &lt;p&gt;</label>
-                <label><input type="radio" name="q4" value="c"> &lt;img&gt;</label>
-                <label><input type="radio" name="q4" value="d"> &lt;div&gt;</label>
+                <label><input type="radio" name="q4" value="c"> &lt;div&gt;</label>
+                <label><input type="radio" name="q4" value="d"> &lt;img&gt;</label>
             </div>
 
             <!-- Question 5 -->
@@ -81,10 +106,10 @@
                 <h2>Question 5</h2>
                 <p>What is the main purpose of CSS?</p>
 
-                <label><input type="radio" name="q5" value="a"> Store website information</label>
-                <label><input type="radio" name="q5" value="b"> Style and format webpages</label>
-                <label><input type="radio" name="q5" value="c"> Create databases</label>
-                <label><input type="radio" name="q5" value="d"> Connect computers</label>
+                <label><input type="radio" name="q5" value="a"> To create databases</label>
+                <label><input type="radio" name="q5" value="b"> To style and format webpages</label>
+                <label><input type="radio" name="q5" value="c"> To store website information</label>
+                <label><input type="radio" name="q5" value="d"> To connect computers to a network</label>
             </div>
 
             <!-- Question 6 -->
@@ -101,7 +126,7 @@
             <!-- Question 7 -->
             <div class="quiz-question">
                 <h2>Question 7</h2>
-                <p>Which version of the web is commonly associated with static webpages and limited user interaction?</p>
+                <p>Which version of the web mainly used static pages with limited interaction?</p>
 
                 <label><input type="radio" name="q7" value="a"> Web 1.0</label>
                 <label><input type="radio" name="q7" value="b"> Web 2.0</label>
@@ -114,10 +139,10 @@
                 <h2>Question 8</h2>
                 <p>What is the main difference between HTTP and HTTPS?</p>
 
-                <label><input type="radio" name="q8" value="a"> HTTPS provides encrypted communication.</label>
-                <label><input type="radio" name="q8" value="b"> HTTP only works on mobile devices.</label>
-                <label><input type="radio" name="q8" value="c"> HTTPS is only used for images.</label>
-                <label><input type="radio" name="q8" value="d"> There is no difference.</label>
+                <label><input type="radio" name="q8" value="a"> HTTPS provides encrypted communication</label>
+                <label><input type="radio" name="q8" value="b"> HTTP is only used for images</label>
+                <label><input type="radio" name="q8" value="c"> HTTPS makes websites load without internet</label>
+                <label><input type="radio" name="q8" value="d"> HTTP is more secure than HTTPS</label>
             </div>
 
             <!-- Question 9 -->
@@ -125,16 +150,16 @@
                 <h2>Question 9</h2>
                 <p>Which CSS property changes the background color of an element?</p>
 
-                <label><input type="radio" name="q9" value="a"> font-size</label>
-                <label><input type="radio" name="q9" value="b"> text-align</label>
+                <label><input type="radio" name="q9" value="a"> text-color</label>
+                <label><input type="radio" name="q9" value="b"> font-style</label>
                 <label><input type="radio" name="q9" value="c"> background-color</label>
-                <label><input type="radio" name="q9" value="d"> margin</label>
+                <label><input type="radio" name="q9" value="d"> border-style</label>
             </div>
 
-            <!-- Question 10: Multiple Selection -->
+            <!-- Question 10 -->
             <div class="quiz-question">
                 <h2>Question 10</h2>
-                <p>Which of the following are valid ways to apply CSS to an HTML page?</p>
+                <p>Which of the following are valid ways to apply CSS?</p>
                 <p>Select all correct answers.</p>
 
                 <label><input type="checkbox" name="q10" value="a"> Inline CSS</label>
@@ -144,7 +169,9 @@
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="quiz-submit">Submit Quiz</button>
+            <button type="submit" class="quiz-submit">
+                Submit Quiz
+            </button>
 
         </form>
 
@@ -153,11 +180,12 @@
 
     </main>
 
-    <!-- Page footer -->
-    <footer>
-        <p>IT 3203 Class Project</p>
+    <!-- Footer -->
+    <footer class="project">
         <p>
-            <a href="https://ksuweb.github.io/IT3203/">IT 3203 Course Website</a>
+            <a href="https://ksuweb.github.io/IT3203/">
+                IT 3203 Course Website
+            </a>
         </p>
     </footer>
 
