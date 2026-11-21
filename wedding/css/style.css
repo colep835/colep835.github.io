@@ -216,6 +216,69 @@ body {
   color: white;
 }
 
+
+/* Wedding itinerary section */
+
+.itinerary-section {
+  width: 100%;
+  padding: 40px 15px;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.itinerary-card {
+  width: 100%;
+  max-width: 850px;
+  aspect-ratio: 3 / 4;
+
+  background-image: url("https://i.postimg.cc/W3QXQNYt/Elegant-Gold-Botanical-Wedding-Arch.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.itinerary-content {
+  width: 70%;
+  color: #777777;
+  font-family: Georgia, "Times New Roman", serif;
+  padding: 20px 0;
+}
+
+.itinerary-subtitle {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.itinerary-content h1 {
+  font-size: clamp(25px, 4vw, 42px);
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+.itinerary-event {
+  margin-bottom: 22px;
+}
+
+.itinerary-event h2 {
+  font-size: clamp(17px, 2.2vw, 23px);
+  margin-bottom: 5px;
+}
+
+.itinerary-event p {
+  font-size: clamp(12px, 1.5vw, 17px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
 footer {
   padding: 30px;
   text-align: center;
@@ -285,6 +348,29 @@ footer {
     padding: 45px 15%;
     border-right: none;
     border-bottom: 1px solid rgba(23, 55, 94, 0.22);
+  }
+
+ /* Mobile itinerary */
+
+  .itinerary-card {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+  }
+
+  .itinerary-content {
+    width: 68%;
+  }
+
+  .itinerary-content h1 {
+    margin-bottom: 20px;
+  }
+
+  .itinerary-event {
+    margin-bottom: 14px;
+  }
+
+  .itinerary-subtitle {
+    font-size: 10px;
   }
 }
 
