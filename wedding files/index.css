@@ -1,0 +1,145 @@
+
+/* General Page Styling */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F8F6F0;
+  color: #553C30;
+  min-height: 100vh;
+}
+
+/* Header */
+
+.page-header {
+  text-align: center;
+  padding: 65px 20px 50px;
+  background-color: #899477;
+  color: white;
+}
+
+.page-header h1 {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Main Dashboard */
+
+.dashboard {
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 0 25px;
+}
+
+.project-section {
+  margin-bottom: 40px;
+}
+
+.project-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* Project Cards */
+
+.project-list {
+  display: grid;
+  gap: 15px;
+}
+
+.project-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 22px 25px;
+  border: 1px solid #E8E4DE;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #553C30;
+  transition: 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: #899477;
+  transform: translateY(-2px);
+}
+
+.project-card h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.project-card p {
+  font-size: 13px;
+  color: #85796F;
+}
+
+.project-card span {
+  color: #65745D;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Quick Links */
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.quick-links a {
+  background-color: #E8EBDD;
+  color: #553C30;
+  text-decoration: none;
+  padding: 12px 17px;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.quick-links a:hover {
+  background-color: #D8DDCE;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #998D83;
+  font-size: 12px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .page-header {
+    padding: 45px 20px;
+  }
+
+  .page-header h1 {
+    font-size: 29px;
+  }
+
+  .dashboard {
+    margin: 35px auto;
+  }
+
+  .project-card {
+    padding: 18px;
+  }
+}

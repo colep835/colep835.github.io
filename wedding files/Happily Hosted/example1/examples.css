@@ -1,223 +1,485 @@
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
 
-:root {
-  --navy: #0b3d5f;
-  --text: #17375e;
-  --cream: #f0efff;
-  --white: #ffffff;
+/* =================================
+   GENERAL STYLING
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--text);
-  background: var(--cream);
+    background-color: #FFFFFF;
+    color: #665044;
+    font-family: 'Lora', serif;
+    line-height: 1.6;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+/* =================================
+   COLOR PALETTE
+
+   Brown: #665044
+   Dark Brown: #553C30
+   Sage: #899477
+   Dark Sage: #65745D
+   Ivory: #F8F6F0
+================================= */
+
+
+/* =================================
+   HEADER / NAVIGATION
+================================= */
+
 .navbar {
-  height: 50px;
-  background: var(--navy);
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 0 3.6%;
-  gap: 25px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+    width: 100%;
+    min-height: 105px;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #899477;
 }
 
 .logo {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.2px;
-  margin-right: auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .nav-links {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  gap: 27px;
+    display: flex;
+    align-items: center;
+    gap: 45px;
 }
 
 .nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    color: #ffffff;
+    text-decoration: none;
+    padding-bottom: 7px;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
-  opacity: 0.7;
+    color: #3f5532;
+    border-bottom-color: #65745D;
 }
 
-.nav-icons {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 13px;
-}
 
-.avatar {
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #d7c5a0, #45654b);
-  display: inline-block;
-}
-
-.hero-image {
-  width: 100%;
-  height: 465px;
-  object-fit: cover;
-  display: block;
-}
+/* =================================
+   HOMEPAGE HERO SECTION
+================================= */
 
 .hero {
-  width: 100%;
-  min-height: 465px;
-  position: relative;
-  display: grid;
-  grid-template-columns: 30% 40% 30%;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: clamp(550px, 60vw, 700px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-  background-image: url("https://i.postimg.cc/50XCMmsB/Chat-GPT-Image-Sep-28-2026-08-35-29-PM.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.90) 0%,
+        rgba(255,255,255,0.65) 35%,
+        rgba(255,255,255,0.05) 65%,
+        transparent 100%
+    );
+    z-index: 1;
 }
 
 .hero-panel {
-  min-height: 465px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .hero-left {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02), rgba(0,0,0,0.05)),
-    url("../images/hero-left.jpg");
+    width: 45%;
 }
 
 .hero-center {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02), rgba(0,0,0,0.05)),
-    url("../images/hero-center.jpg");
-  position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 7%;
 }
 
 .hero-right {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02), rgba(0,0,0,0.05)),
-    url("../images/hero-right.jpg");
+    display: none;
 }
 
 .hero-text {
-  position: absolute;
-  top: 155px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  text-align: center;
-  white-space: nowrap;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    position: relative;
+    z-index: 3;
+    max-width: 460px;
 }
 
 .hero-text p {
-  font-size: 14px;
-  margin-bottom: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: #65745D;
+    margin-bottom: 30px;
+}
+
+.hero-text p::after {
+    content: "";
+    display: block;
+    width: 115px;
+    height: 1px;
+    background-color: #65745D;
+    margin-top: 16px;
 }
 
 .hero-text h1 {
-  font-size: 13px;
-  font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 7vw, 85px);
+    font-weight: 500;
+    line-height: 0.95;
+    color: #553C30;
 }
 
+
+/* =================================
+   RSVP BUTTON
+================================= */
+
 .hero-bottom {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 108px;
-  background: rgba(40, 40, 40, 0.52);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    background-color: #FFFFFF;
+    border-radius: 50% 50% 0 0 / 35% 35% 0 0;
 }
 
 .rsvp-button {
-  background: white;
-  color: #222;
-  text-decoration: none;
-  padding: 10px 16px;
-  font-size: 10px;
-  transition: 0.2s ease;
+    position: absolute;
+    top: -35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 285px;
+    padding: 16px 35px;
+    border-radius: 40px;
+    background-color: #899477;
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.rsvp-button::after {
+    content: "→";
+    margin-left: 18px;
 }
 
 .rsvp-button:hover {
-  transform: translateY(-2px);
+    background-color: #65745D;
+    transform: translateY(-3px);
 }
 
+
+/* =================================
+   HOMEPAGE FEATURE CARDS
+================================= */
+
 .feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: var(--cream);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 35px 4% 50px;
+    background-color: #FFFFFF;
 }
 
 .feature-card {
-  min-height: 405px;
-  padding: 48px 17%;
-  text-align: center;
-  border-right: 1px solid rgba(23, 55, 94, 0.22);
+    text-align: center;
+    padding: 0 5px 10px;
+    border-right: 1px solid #E8E4DE;
 }
 
 .feature-card:last-child {
-  border-right: none;
+    border-right: none;
+}
+
+.feature-card::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 210px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 25px;
+}
+
+.feature-card:nth-child(1)::before {
+    background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85");
+}
+
+.feature-card:nth-child(2)::before {
+    background-image: url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85");
+}
+
+.feature-card:nth-child(3)::before {
+    background-image: url("https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=85");
 }
 
 .feature-card h2 {
-  font-size: 25px;
-  line-height: 1.45;
-  font-weight: 400;
-  margin-bottom: 29px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 1.15;
+    color: #553C30;
+    margin-bottom: 22px;
 }
 
 .feature-card p {
-  font-size: 11.5px;
-  line-height: 1.55;
-  margin-bottom: 28px;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.65;
+    color: #665044;
+    padding: 0 5px;
+    margin-bottom: 25px;
 }
 
+
+/* =================================
+   GENERAL BUTTONS
+================================= */
+
 .outline-button {
-  display: inline-block;
-  color: var(--text);
-  border: 1px solid #6e80a0;
-  text-decoration: none;
-  padding: 12px 24px;
-  font-size: 11px;
-  background: transparent;
-  transition: 0.2s ease;
+    display: inline-block;
+    min-width: 180px;
+    padding: 11px 25px;
+    border: 1px solid #665044;
+    border-radius: 35px;
+    color: #665044;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .outline-button:hover {
-  background: var(--text);
-  color: white;
+    background-color: #899477;
+    border-color: #899477;
+    color: #FFFFFF;
 }
 
 
-/* Wedding itinerary section */
+/* =================================
+   SHARED CONTENT SECTIONS
+================================= */
+
+section:not(.hero):not(.feature-grid) {
+    color: #665044;
+}
+
+section h1,
+section h2,
+section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #553C30;
+    font-weight: 500;
+}
+
+section p {
+    color: #665044;
+}
+
+
+/* =================================
+   WEDDING ITINERARY - SERVICES PAGE
+================================= */
+
+.itinerary-section {
+    min-height: 700px;
+    padding: 75px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8F6F0;
+    background-image: linear-gradient(
+        rgba(248,246,240,0.88),
+        rgba(248,246,240,0.88)
+    );
+}
+
+.itinerary-card {
+    width: 100%;
+    max-width: 850px;
+    padding: 60px 45px;
+    background-color: #FFFFFF;
+    border: 1px solid #E8E4DE;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(85,60,48,0.06);
+}
+
+.itinerary-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.itinerary-subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: #899477;
+    margin-bottom: 15px;
+}
+
+.itinerary-content h1 {
+    font-size: 55px;
+    line-height: 1.1;
+    margin-bottom: 35px;
+}
+
+.itinerary-event {
+    padding: 20px 10px;
+    border-bottom: 1px solid #E8E4DE;
+}
+
+.itinerary-event:last-child {
+    border-bottom: none;
+}
+
+.itinerary-event h2 {
+    font-size: 30px;
+    color: #899477;
+    margin-bottom: 3px;
+}
+
+.itinerary-event p {
+    font-size: 17px;
+    font-style: italic;
+}
+
+
+/* =================================
+   GENERAL INFORMATION / QUIZ PAGES
+================================= */
+
+.info-section,
+.about-section,
+.quiz-section {
+    min-height: 550px;
+    padding: 75px 7%;
+    background-color: #F8F6F0;
+}
+
+.info-card,
+.about-card,
+.quiz-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 45px;
+    background-color: #FFFFFF;
+    border: 1px solid #E8E4DE;
+    border-radius: 12px;
+}
+
+.info-card h1,
+.about-card h1,
+.quiz-card h1 {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.info-card p,
+.about-card p,
+.quiz-card p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+
+/* =================================
+   FORM AND QUIZ ELEMENTS
+================================= */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0 18px;
+    border: 1px solid #D8D1C9;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    color: #665044;
+    font-family: 'Lora', serif;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 1px solid #899477;
+    border-color: #899477;
+}
+
+button {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 35px;
+    background-color: #899477;
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #65745D;
+}
+
+/* ===========================
+== Wedding itinerary section == 
+  ============================*/
 
 .itinerary-section {
   width: 100%;
@@ -278,98 +540,513 @@ body {
   letter-spacing: 0.5px;
 }
 
+/* ===============
+== COUPLES QUIZ ==
+================*/
 
-footer {
-  padding: 30px;
-  text-align: center;
-  background: var(--navy);
-  color: white;
-  font-size: 12px;
+.quiz-intro {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 35px;
 }
 
-@media (max-width: 850px) {
-  .navbar {
-    height: auto;
-    min-height: 60px;
-    flex-wrap: wrap;
-    padding: 12px 20px;
-  }
+.quiz-question {
+    text-align: left;
+    padding: 22px 10px;
+    border-bottom: 1px solid #E8E4DE;
+}
 
-  .nav-links {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
+.quiz-question h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
 
-  /* Mobile hero image */
-  .hero {
+.quiz-question label {
     display: block;
+    padding: 7px 0;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.quiz-question input {
+    width: auto;
+    margin: 0 10px 0 0;
+    accent-color: #899477;
+}
+
+.quiz-submit {
+    display: block;
+    margin: 35px auto 10px;
+}
+
+.quiz-result {
+    margin-top: 25px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: #65745D;
+}
+
+.quiz-result h2 {
+    font-size: 34px;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
     width: 100%;
-    height: clamp(300px, 65vw, 460px);
-    min-height: 0;
+    padding: 35px 20px;
+    background-color: #899477;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+}
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+footer p {
+    color: #FFFFFF;
+}
+
+/* ========================================
+   WEDDING DETAILS PAGE
+======================================== */
+
+.details-hero {
+  text-align: center;
+  padding: 100px 20px 85px;
+  background-color: #F8F6F0;
+}
+
+.details-eyebrow {
+  color: #65745D;
+  font-family: 'Lora', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.details-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 58px;
+  font-weight: 500;
+  color: #553C30;
+  margin-bottom: 18px;
+}
+
+.details-intro {
+  max-width: 560px;
+  margin: 0 auto 25px;
+  color: #665044;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.details-date {
+  color: #899477;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* Individual detail sections */
+
+.details-section {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 85px 35px;
+}
+
+.details-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.details-image {
+  flex: 1;
+  min-height: 390px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 3px;
+}
+
+.details-content {
+  flex: 1;
+}
+
+.details-content h2,
+.gift-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #553C30;
+  margin-bottom: 20px;
+}
+
+.details-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  font-weight: 500;
+  color: #65745D;
+  margin-bottom: 12px;
+}
+
+.details-content p {
+  color: #665044;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+
+/* Section images */
+
+.style-image {
+  background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85');
+}
+
+.colors-image {
+  background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85');
+}
+
+.dress-image {
+  background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85');
+}
+
+.venue-image {
+  background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1000&q=85');
+}
+
+.reception-image {
+  background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=85');
+}
+
+/* Wedding color palette */
+
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 28px 0 20px;
+}
+
+.color-item {
+  text-align: center;
+  width: 65px;
+}
+
+.color-swatch {
+  display: block;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin: 0 auto 9px;
+  border: 1px solid #e8e4de;
+}
+
+.color-item p {
+  font-size: 11px;
+  margin: 0;
+  color: #665044;
+}
+
+.sage {
+  background-color: #899477;
+}
+
+.soft-green {
+  background-color: #D8DDCE;
+}
+
+.ivory {
+  background-color: #F8F6F0;
+}
+
+.champagne {
+  background-color: #D9C5B5;
+}
+
+.brown {
+  background-color: #665044;
+}
+
+.small-note {
+  font-size: 12px !important;
+  font-style: italic;
+}
+
+/* Gifts and registry */
+
+.gift-section {
+  background-color: #F8F6F0;
+  text-align: center;
+  padding: 85px 25px;
+}
+
+.gift-section > p:not(.details-eyebrow) {
+  max-width: 600px;
+  margin: 0 auto 25px;
+  color: #665044;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.registry-button {
+  display: inline-block;
+  background-color: #899477;
+  color: white;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.registry-button:hover {
+  background-color: #65745D;
+}
+
+/* Footer */
+
+.details-footer {
+  text-align: center;
+  padding: 35px 20px;
+  background-color: #665044;
+  color: #F8F6F0;
+}
+
+.details-footer p {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  margin: 7px 0;
+}
+
+
+/* =================================
+   TABLET RESPONSIVENESS
+================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 15px 3%;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .feature-grid {
+        gap: 18px;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .feature-card::before {
+        height: 160px;
+    }
+
+    .feature-card h2 {
+        font-size: 23px;
+    }
+
+    .feature-card p {
+        font-size: 14px;
+    }
+
+    .itinerary-card {
+        max-width: 750px;
+    }
+}
+
+
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        min-height: 85px;
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 29px;
+    }
+
+    .nav-links {
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+
+    .hero {
+        min-height: 550px;
+        height: 125vw;
+        max-height: 650px;
+        background-position: 65% center;
+        align-items: flex-start;
+    }
+
+    .hero::before {
+        background: linear-gradient(
+            90deg,
+            rgba(255,255,255,0.85),
+            rgba(255,255,255,0.35)
+        );
+    }
+
+    .hero-center {
+        padding: 65px 6% 0;
+        align-items: flex-start;
+    }
+
+    .hero-text p {
+        font-size: 19px;
+    }
+
+    .hero-text h1 {
+        font-size: 55px;
+    }
+
+    .hero-bottom {
+        height: 55px;
+    }
+
+    .rsvp-button {
+        min-width: 220px;
+        font-size: 22px;
+        padding: 12px 25px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 30px 7%;
+    }
+
+    .feature-card {
+        border-right: none;
+        border-bottom: 1px solid #E8E4DE;
+        padding-bottom: 35px;
+    }
+
+    .feature-card:last-child {
+        border-bottom: none;
+    }
+
+    .feature-card::before {
+        height: 230px;
+    }
+
+    .feature-card h2 {
+        font-size: 27px;
+    }
+
+    .feature-card p {
+        font-size: 15px;
+    }
+
+    .itinerary-section {
+        min-height: auto;
+        padding: 45px 15px;
+    }
+
+    .itinerary-card {
+        padding: 35px 20px;
+    }
+
+    .itinerary-content h1 {
+        font-size: 42px;
+    }
+
+    .itinerary-subtitle {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .itinerary-event h2 {
+        font-size: 26px;
+    }
+
+    .itinerary-event p {
+        font-size: 15px;
+    }
+
+    .info-section,
+    .about-section,
+    .quiz-section {
+        padding: 40px 5%;
+    }
+
+    .info-card,
+    .about-card,
+    .quiz-card {
+        padding: 25px 18px;
+    }
+
+    .info-card h1,
+    .about-card h1,
+    .quiz-card h1 {
+        font-size: 38px;
+    }
+
+    footer {
+        padding: 28px 15px;
+        font-size: 21px;
+    }
+}
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+
+  .details-hero {
+    padding: 70px 20px 60px;
   }
 
-  .hero-panel {
-    display: none;
+  .details-hero h1 {
+    font-size: 43px;
   }
 
-  .hero-text {
-    top: 38%;
-    left: 50%;
-    width: 90%;
-    white-space: normal;
+  .details-section,
+  .details-section.reverse {
+    flex-direction: column;
+    gap: 30px;
+    padding: 55px 22px;
   }
 
-  .hero-text p {
-    font-size: 13px;
-  }
-
-  .hero-text h1 {
-    font-size: 26px;
-    line-height: 1.2;
-  }
-
-  .hero-bottom {
-    height: 75px;
-  }
-
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .feature-card {
-    min-height: auto;
-    padding: 45px 15%;
-    border-right: none;
-    border-bottom: 1px solid rgba(23, 55, 94, 0.22);
-  }
-
- /* Mobile itinerary */
-
-  .itinerary-card {
+  .details-image {
     width: 100%;
-    aspect-ratio: 3 / 4;
+    min-height: 280px;
   }
 
-  .itinerary-content {
-    width: 68%;
+  .details-content {
+    width: 100%;
   }
 
-  .itinerary-content h1 {
-    margin-bottom: 20px;
+  .details-content h2,
+  .gift-section h2 {
+    font-size: 35px;
   }
 
-  .itinerary-event {
-    margin-bottom: 14px;
+  .color-palette {
+    gap: 12px;
   }
 
-  .itinerary-subtitle {
-    font-size: 10px;
+  .gift-section {
+    padding: 65px 22px;
   }
+
 }

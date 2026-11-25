@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    background-color: #faf7f2;
+    background-color: #ffffff;
     color: #4d382c;
     font-family: 'DM Sans', sans-serif;
 }
@@ -26,7 +26,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fffdfa;
+    background-color: #ffffff;
     border-bottom: 1px solid #eee5dc;
 }
 
@@ -66,23 +66,36 @@ nav a.active {
 
 .hero {
     min-height: 465px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: #f1e8dd;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* Floral Banner Image */
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://i.postimg.cc/Y0VY46DF/White-Lily-Floral-Bokeh-Banner.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scaleX(-1);
 }
 
 .hero-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 65px 10%;
+    position: relative;
+    z-index: 1;
+    width: 55%;
+    padding: 65px 0 65px 10%;
 }
-
 .eyebrow {
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 3px;
-    color: #9a806d;
+    color:#665044;
+    font-weight: 600;
     margin-bottom: 18px;
 }
 
@@ -102,20 +115,13 @@ h1 {
     margin: 20px 0 30px;
 }
 
-/* Reserved for future flower photograph */
-
-.hero-image {
-    background-color: #e8ded2;
-    min-height: 465px;
-}
-
 
 /* Buttons */
 
 .button {
     display: inline-block;
     padding: 14px 27px;
-    background-color: #9a806d;
+    background-color: #A8DCAB ;
     color: white;
     border-radius: 30px;
     text-decoration: none;
@@ -132,9 +138,9 @@ h1 {
 /* Portfolio Section */
 
 .portfolio {
-    padding: 45px 20px;
+    padding: 50px 20px;
     text-align: center;
-    background-color: #faf7f2;
+    background-color: #ffffff;
 }
 
 .portfolio-content {
@@ -162,9 +168,9 @@ h2 {
 /* Contact Section */
 
 .contact {
-    padding: 35px 20px 45px;
+    padding: 40px 20px 45px;
     text-align: center;
-    background-color: #f2e9df;
+    background-color: #fbf8f4;
 }
 
 .email {
@@ -188,8 +194,9 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fffdfa;
+    background-color: #ffffff;
     color: #78685c;
+    border-top: 1px solid #eee5dc;
 }
 
 .footer-logo {
@@ -232,10 +239,12 @@ h2 {
     }
 
     .hero {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .hero-content {
+        width: 100%;
         padding: 55px 25px;
     }
 
@@ -244,7 +253,11 @@ h2 {
     }
 
     .hero-image {
-        min-height: 280px;
+        position: relative;
+        inset: auto;
+        height: 240px;
+        background-position: center;
+        transform: none;
     }
 
     .portfolio {
@@ -260,4 +273,5 @@ h2 {
         gap: 12px;
         text-align: center;
     }
+
 }

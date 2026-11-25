@@ -1,24 +1,184 @@
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding 2028</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couples Quiz | Wedding 2028</title>
+    <link rel="stylesheet" href="examples.css">
 </head>
 
-  <header class="navbar">
+<body>
+
+<header class="navbar">
     <a class="logo" href="index.html">WEDDING 2028</a>
 
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
+        <a href="index.html">Home</a>
+        <a href="services.html">Wedding Itinerary</a>
+        <a href="info.html">Wedding Info</a>
     </nav>
-    </header>
-    <body>
-      
-    </body>
+</header>
 
-    <footer id="contact">
-    <p>Wedding 2028</p>
-  </footer>
-    </html>
+<main class="quiz-section">
+
+    <div class="quiz-card">
+
+        <p class="itinerary-subtitle">HOW WELL DO YOU KNOW US?</p>
+
+        <h1>The Couples Quiz</h1>
+
+        <p class="quiz-intro">
+            Think you know Emily and Daniel?
+            Take this quick quiz to see how much you know about
+            their love story!
+        </p>
+
+        <form id="couplesQuiz">
+
+            <div class="quiz-question">
+                <h2>1. Where did Emily and Daniel first meet?</h2>
+
+                <label><input type="radio" name="q1" value="a"> At a coffee shop</label>
+                <label><input type="radio" name="q1" value="b"> Through mutual friends</label>
+                <label><input type="radio" name="q1" value="c"> At a concert</label>
+            </div>
+
+            <div class="quiz-question">
+                <h2>2. Who said "I love you" first?</h2>
+
+                <label><input type="radio" name="q2" value="a"> Emily</label>
+                <label><input type="radio" name="q2" value="b"> Daniel</label>
+                <label><input type="radio" name="q2" value="c"> They said it at the same time</label>
+            </div>
+
+            <div class="quiz-question">
+                <h2>3. What was their first official date?</h2>
+
+                <label><input type="radio" name="q3" value="a"> Dinner and a movie</label>
+                <label><input type="radio" name="q3" value="b"> A trip to the beach</label>
+                <label><input type="radio" name="q3" value="c"> Mini golf</label>
+            </div>
+
+            <div class="quiz-question">
+                <h2>4. Who made the first move?</h2>
+
+                <label><input type="radio" name="q4" value="a"> Emily</label>
+                <label><input type="radio" name="q4" value="b"> Daniel</label>
+                <label><input type="radio" name="q4" value="c"> Neither, it just happened</label>
+            </div>
+
+            <div class="quiz-question">
+                <h2>5. What is their favorite activity together?</h2>
+
+                <label><input type="radio" name="q5" value="a"> Cooking together</label>
+                <label><input type="radio" name="q5" value="b"> Watching movies</label>
+                <label><input type="radio" name="q5" value="c"> Traveling</label>
+            </div>
+
+            <div class="quiz-question">
+                <h2>6. Who is more likely to be late?</h2>
+
+                <label><input type="radio" name="q6" value="a"> Emily</label>
+                <label><input type="radio" name="q6" value="b"> Daniel</label>
+                <label><input type="radio" name="q6" value="c"> Both of them</label>
+            </div>
+
+            <div class="quiz-question">
+                <h2>7. Who is the better cook?</h2>
+
+                <label><input type="radio" name="q7" value="a"> Emily</label>
+                <label><input type="radio" name="q7" value="b"> Daniel</label>
+                <label><input type="radio" name="q7" value="c"> They are equally good</label>
+            </div>
+
+            <div class="quiz-question">
+                <h2>8. Where did Daniel propose?</h2>
+
+                <label><input type="radio" name="q8" value="a"> On the beach</label>
+                <label><input type="radio" name="q8" value="b"> At their favorite restaurant</label>
+                <label><input type="radio" name="q8" value="c"> During a mountain getaway</label>
+            </div>
+
+            <div class="quiz-question">
+                <h2>9. What is their favorite vacation destination?</h2>
+
+                <label><input type="radio" name="q9" value="a"> Hawaii</label>
+                <label><input type="radio" name="q9" value="b"> Italy</label>
+                <label><input type="radio" name="q9" value="c"> Colorado</label>
+            </div>
+
+            <div class="quiz-question">
+                <h2>10. Who is more likely to cry during the wedding?</h2>
+
+                <label><input type="radio" name="q10" value="a"> Emily</label>
+                <label><input type="radio" name="q10" value="b"> Daniel</label>
+                <label><input type="radio" name="q10" value="c"> Both of them</label>
+            </div>
+
+            <button type="submit" class="quiz-submit">
+                Submit My Answers
+            </button>
+
+        </form>
+
+        <div id="quizResult" class="quiz-result"></div>
+
+    </div>
+
+</main>
+
+<footer id="contact">
+    <p>Emily & Daniel | Wedding 2028</p>
+</footer>
+
+<script>
+const answers = {
+    q1: "b",
+    q2: "b",
+    q3: "c",
+    q4: "b",
+    q5: "c",
+    q6: "a",
+    q7: "a",
+    q8: "a",
+    q9: "b",
+    q10: "c"
+};
+
+document.getElementById("couplesQuiz").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let score = 0;
+    const total = Object.keys(answers).length;
+
+    for (let question in answers) {
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+        if (selected && selected.value === answers[question]) {
+            score++;
+        }
+    }
+
+    const result = document.getElementById("quizResult");
+
+    result.innerHTML =
+        "<h2>You scored " + score + " out of " + total + "!</h2>" +
+        "<p>" +
+        (score === 10
+            ? "Perfect score! You know Emily and Daniel so well!"
+            : score >= 7
+            ? "Great job! You know this couple pretty well!"
+            : score >= 4
+            ? "Not bad! You still have a few things to learn about the happy couple!"
+            : "Looks like you need to spend a little more time with Emily and Daniel!") +
+        "</p>";
+    
+    result.scrollIntoView({ behavior: "smooth" });
+});
+</script>
+
+</body>
+</html>
